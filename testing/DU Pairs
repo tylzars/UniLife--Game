@@ -1,0 +1,38 @@
+UniLifeGame.java
+
+private void addFallingObjects() {
+        int rand_xpos = rand.nextInt(WIDTH - 2*BORDER) + BORDER;
+
+        int random1 = rand.nextInt(20);
+        if(random1 <= 2){
+            fallingObjects.add(new FallingObject( FallingObjectType.values()[random1], rand_xpos));
+        }
+
+        int random2 = rand.nextInt(80);
+        if (random2 == FallingObjectType.Coffee.getType() ||
+                random2 == FallingObjectType.Beer.getType()) {
+            int rand_xpos2 = rand.nextInt(WIDTH - 2*BORDER) + BORDER;
+            fallingObjects.add(new FallingObject(FallingObjectType.values()[random2], rand_xpos2));
+        }
+    }
+
+FallingObject.java
+
+public FallingObject(FallingObjectType type, int x_coord){
+        this.type = type;
+        this.x_coord = x_coord;
+        hasBeenCollected = false;
+}
+
+DU Pairs
+(addFallingObjects(), random1, 67) - (FallingObject(), type, 16)
+(addFallingObjects(), rand_xpos, 64) - (FallingObject(), x_coord, 17)
+
+Testing Statements Used
+assertNotSame
+assertTrue
+assertFalse
+assertEquals
+assertNotEquals
+assertNotNull
+assertNull
